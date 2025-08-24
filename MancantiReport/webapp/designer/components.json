@@ -1,0 +1,15 @@
+{
+	"components": [
+		{
+			"id": "MancantiReport",
+			"type": "VIEW_PLUGIN",
+			"allowMultipleInstances": false,
+			"name": "kpmg.custom.mancantiReport.MancantiReport.MancantiReport",
+			"propertyEditor": "kpmg.custom.mancantiReport.MancantiReport.MancantiReport.builder.PropertyEditor",
+			"i18n": "kpmg.custom.mancantiReport.MancantiReport.MancantiReport.i18n.i18n",
+            "productionProcessEnabled": true,
+           "productionProcessTitle": "MancantiReport",
+			"supportedPodTypes": ["WORK_CENTER","OPERATION","ORDER","OTHER"]
+		}   
+	]
+}

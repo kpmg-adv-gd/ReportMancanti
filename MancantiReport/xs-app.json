@@ -1,0 +1,14 @@
+{
+  "welcomeFile": "/MancantiReport/index.html",
+  "authenticationMethod": "none",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+    {
+      "source": "^/MancantiReport/(.*)$",
+      "target": "$1",
+      "localDir": "webapp"
+    }
+  ]
+}

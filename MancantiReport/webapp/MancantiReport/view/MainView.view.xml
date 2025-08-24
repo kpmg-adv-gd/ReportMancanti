@@ -1,0 +1,117 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="kpmg.custom.mancantiReport.MancantiReport.MancantiReport.controller.MainView" width="100%" height="100%">
+    <Page title="{i18n>mancantiReport.title}" class="kpmgGDPage" showHeader="false" enableScrolling="false">
+        <content>
+            <VBox width="100%" height="100%" renderType="Bare">
+                <!-- Filtri e header tabella -->
+                <HBox width="100%" height="8%" class="smallPadding" renderType="Bare">
+                    <HBox width="70%" justifyContent="Start" height="100%" alignItems="Center" renderType="Bare">
+                        <HBox width="25%" height="100%" alignItems="Center" renderType="Bare">
+                            <Label text="{i18n>mancantiReport.label.project}:" width="100%" textAlign="Left" class="kpmgGDMediumlLabelInfo autoWidth" />
+                            <Input id="projectInputId" placeholder="Enter Project ..." showSuggestion="true" showValueHelp="false" suggestionItems="{FilterModel>/Project}" class="width70Percentage padding1PercentageLeft">
+                                <suggestionItems>
+                                    <core:Item text="{FilterModel>DATA_FIELD_VALUE}" />
+                                </suggestionItems>
+                            </Input>
+                        </HBox>
+                        <HBox width="25%" height="100%" alignItems="Center" renderType="Bare">
+                            <Label text="{i18n>mancantiReport.label.wbe}:" width="100%" textAlign="Left" class="kpmgGDMediumlLabelInfo autoWidth" />
+                            <Input id="wbeInputId" placeholder="Enter WBS Element ..." showSuggestion="true" showValueHelp="false" suggestionItems="{FilterModel>/WBS}" class="width75Percentage padding1PercentageLeft">
+                                <suggestionItems>
+                                    <core:Item text="{FilterModel>DATA_FIELD_VALUE}" />
+                                </suggestionItems>
+                            </Input>
+                        </HBox>
+                        <HBox width="25%" height="100%" alignItems="Center" renderType="Bare">
+                            <Label text="{i18n>mancantiReport.label.mancantiDateRange}:" width="100%" textAlign="Left" class="kpmgGDMediumlLabelInfo autoWidth" />
+                            <DateRangeSelection id="dataRangeInputId" class="width70Percentage padding1PercentageLeft"
+                            value= "{
+                                'type': 'sap.ui.model.type.DateInterval',
+                                'formatOptions': {
+                                    'pattern': 'dd/MM/yyyy'
+                                },
+                                'parts': [
+                                    {
+                                        'type': 'sap.ui.model.type.Date',
+                                        'path': '/start'
+                                    },
+                                    {
+                                        'type': 'sap.ui.model.type.Date',
+                                        'path': '/end'
+                                    }
+                                ]
+                            }" />
+                        </HBox>
+                    </HBox>
+                    <HBox width="30%" justifyContent="End" height="100%" alignItems="Center" renderType="Bare">
+                        <Button text="{i18n>mancantiReport.button.search}" icon="sap-icon://search" type="Emphasized" class="buttonClassMedium marginRight1Percentage" press="onGoPress" />
+                        <Button icon="sap-icon://excel-attachment" type="Transparent" class="buttonClassSmall marginRight1Percentage" press="onExportExcel" />
+                    </HBox>
+                </HBox>
+                <!-- Tabella Report -->
+                <VBox width="100%" height="92%" renderType="Bare">
+                    <t:Table id="resultTable" rowSelectionChange="rowSelectionChange" class="kpmgGDTable" rows="{MancantiReportModel>/MancantiList}" selectionMode="Single" selectionBehavior="RowOnly" visibleRowCountMode="Auto" rowHeight="45px" >
+                    <t:layoutData>
+                        <FlexItemData growFactor="1" baseSize="0%"/>
+                    </t:layoutData>
+                        <t:columns>
+                            <t:Column sortProperty="project" filterProperty="project" width="6%" hAlign="Center">
+                                <Label text="{i18n>mancantiReport.table.project}"  />
+                                <t:template>
+                                    <Text wrapping="false" text="{MancantiReportModel>project}"  />
+                                </t:template>
+                            </t:Column>
+                            <t:Column sortProperty="wbs_element" filterProperty="wbs_element" width="14%" hAlign="Center">
+                                <Label text="{i18n>mancantiReport.table.wbs_element}"  />
+                                <t:template>
+                                    <Text wrapping="false" text="{MancantiReportModel>wbs_element}"  />
+                                </t:template>
+                            </t:Column>
+                            <t:Column sortProperty="parent_material" filterProperty="parent_material" width="10%" hAlign="Center">
+                                <Label text="{i18n>mancantiReport.table.parent_material}"  />
+                                <t:template>
+                                    <Text wrapping="false" text="{MancantiReportModel>parent_material}"  />
+                                </t:template>
+                            </t:Column>
+                            <t:Column sortProperty="order" filterProperty="order" width="8%" hAlign="Center">
+                                <Label wrapping="false" text="{i18n>mancantiReport.table.order}"  />
+                                <t:template>
+                                    <Text wrapping="false" text="{MancantiReportModel>order}"  />
+                                </t:template>
+                            </t:Column>
+                            <t:Column sortProperty="material" filterProperty="material" width="10%" hAlign="Center">
+                                <Label wrapping="false" text="{i18n>mancantiReport.table.material}"  />
+                                <t:template>
+                                    <Text wrapping="false" text="{MancantiReportModel>material}"  />
+                                </t:template>
+                            </t:Column>
+                            <t:Column sortProperty="missing_material" filterProperty="missing_material" width="10%" hAlign="Center">
+                                <Label text="{i18n>mancantiReport.table.missing_material}"  />
+                                <t:template>
+                                    <Text wrapping="false" text="{MancantiReportModel>missing_material}"  />
+                                </t:template>
+                            </t:Column>
+                            <t:Column sortProperty="type_mancante" filterProperty="type_mancante" width="16%" hAlign="Center">
+                                <Label text="{i18n>mancantiReport.table.type_mancante}"  />
+                                <t:template>
+                                    <Text wrapping="false" text="{MancantiReportModel>type_mancante}"  />
+                                </t:template>
+                            </t:Column>  
+                            <t:Column sortProperty="type_cover_element" filterProperty="type_cover_element" width="14%" hAlign="Center">
+                                <Label text="{i18n>mancantiReport.table.type_cover_element}"  />
+                                <t:template>
+                                    <Text wrapping="false" text="{MancantiReportModel>type_cover_element}"  />
+                                </t:template>
+                            </t:Column>  
+                            <t:Column sortProperty="delivery_date_sort" filterProperty="delivery_date" width="12%" hAlign="Center" >
+                                <Label text="{i18n>mancantiReport.table.delivery_date}"  />
+                                <t:template>
+                                    <Text wrapping="false" text="{MancantiReportModel>delivery_date}" />                            
+                                </t:template>
+                            </t:Column>  
+                        </t:columns>
+                    </t:Table>
+                </VBox>
+            </VBox>
+        </content>   
+    </Page>
+</mvc:View>

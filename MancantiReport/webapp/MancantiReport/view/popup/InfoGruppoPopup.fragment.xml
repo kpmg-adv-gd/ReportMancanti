@@ -1,0 +1,40 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    controllerName="kpmg.custom.mancantiReport.MancantiReport.MancantiReport.controller.popup.InfoGruppoPopup"
+    width="100%"
+    height="100%"
+>
+    <Dialog id="infoGruppoDialog" title="Info Group" showHeader="true" contentHeight="40%"  contentWidth="40%" verticalScrolling="false" horizontalScrolling="false"> 
+        <content>
+            <!-- Container principale -->
+            <VBox width="100%" height="100%" renderType="Bare" alignItems="Center" justifyContent="SpaceBetween">
+                <!-- Main Content -->
+                <VBox width="90%" height="90%" renderType="Bare" alignItems="Center" class="classSpaceEvenly" > 
+                    <HBox width="100%" renderType="Bare" >
+                        <Label class="kpmgGDMediumlLabelInfo" text="Order Group:" />
+                        <Text class="kpmgGDMediumlLabel smallMarginLeft" text="{/orderGroup}" />
+                    </HBox>
+                    <HBox width="100%" renderType="Bare">
+                        <Label class="kpmgGDMediumlLabelInfo" text="Material Group:" />
+                        <Text class="kpmgGDMediumlLabel smallMarginLeft" text="{/materialGroup}" />
+                    </HBox>
+                    <HBox width="100%" renderType="Bare">
+                        <Label class="kpmgGDMediumlLabelInfo" text="Tot Components Group:" />
+                        <Text class="kpmgGDMediumlLabel smallMarginLeft" text="{/totaleComponenti}" />
+                    </HBox>
+                    <HBox width="100%" renderType="Bare">
+                        <Label class="kpmgGDMediumlLabelInfo" text="Tot Missing Group:" />
+                        <Text class="kpmgGDMediumlLabel smallMarginLeft" text="{/totaleMancanti}" />
+                    </HBox>
+                </VBox>
+                <HBox width="90%" height="10%"  renderType="Bare" alignItems="Center" justifyContent="End">
+                    <Button text="Close" type="Emphasized" class="smallMarginBottom" press="onClosePopup" />
+                </HBox> 
+            </VBox>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>
