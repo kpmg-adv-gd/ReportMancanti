@@ -124,6 +124,7 @@ sap.ui.define([
                 { label: "Order", property: "order" },
                 { label: "Material Order", property: "material" },
                 { label: "Missing Material", property: "missing_material" },
+                { label: "Component Description", property: "missingMaterialDescription" },
                 { label: "Missing Quantity", property: "missing_quantity" },
                 { label: "Missing Type", property: "type_mancante" },
                 { label: "Cover Element Type", property: "type_cover_element" },

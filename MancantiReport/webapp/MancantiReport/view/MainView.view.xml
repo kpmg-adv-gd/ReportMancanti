@@ -60,7 +60,7 @@
                                     <Text wrapping="false" text="{MancantiReportModel>project}"  />
                                 </t:template>
                             </t:Column>
-                            <t:Column sortProperty="wbs_element" filterProperty="wbs_element" width="14%" hAlign="Center">
+                            <t:Column sortProperty="wbs_element" filterProperty="wbs_element" width="12%" hAlign="Center">
                                 <Label text="{i18n>mancantiReport.table.wbs_element}"  />
                                 <t:template>
                                     <Text wrapping="false" text="{MancantiReportModel>wbs_element}"  />
@@ -90,19 +90,25 @@
                                     <Text wrapping="false" text="{MancantiReportModel>missing_material}"  />
                                 </t:template>
                             </t:Column>
-                            <t:Column sortProperty="type_mancante" filterProperty="type_mancante" width="16%" hAlign="Center">
+                            <t:Column sortProperty="missingMaterialDescription" filterProperty="missingMaterialDescription" width="10%" hAlign="Center">
+                                <Label text="{i18n>mancantiReport.table.missingMaterialDescription}"  />
+                                <t:template>
+                                    <Text wrapping="false" text="{MancantiReportModel>missingMaterialDescription}"  />
+                                </t:template>
+                            </t:Column>
+                            <t:Column sortProperty="type_mancante" filterProperty="type_mancante" width="14%" hAlign="Center">
                                 <Label text="{i18n>mancantiReport.table.type_mancante}"  />
                                 <t:template>
                                     <Text wrapping="false" text="{MancantiReportModel>type_mancante}"  />
                                 </t:template>
                             </t:Column>  
-                            <t:Column sortProperty="type_cover_element" filterProperty="type_cover_element" width="14%" hAlign="Center">
+                            <t:Column sortProperty="type_cover_element" filterProperty="type_cover_element" width="12%" hAlign="Center">
                                 <Label text="{i18n>mancantiReport.table.type_cover_element}"  />
                                 <t:template>
                                     <Text wrapping="false" text="{MancantiReportModel>type_cover_element}"  />
                                 </t:template>
                             </t:Column>  
-                            <t:Column sortProperty="delivery_date_sort" filterProperty="delivery_date" width="12%" hAlign="Center" >
+                            <t:Column sortProperty="delivery_date_sort" filterProperty="delivery_date" width="8%" hAlign="Center" >
                                 <Label text="{i18n>mancantiReport.table.delivery_date}"  />
                                 <t:template>
                                     <Text wrapping="false" text="{MancantiReportModel>delivery_date}" />                            
