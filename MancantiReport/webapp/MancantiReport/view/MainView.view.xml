@@ -87,13 +87,13 @@
                             <t:Column sortProperty="missing_material" filterProperty="missing_material" width="10%" hAlign="Center">
                                 <Label text="{i18n>mancantiReport.table.missing_material}"  />
                                 <t:template>
-                                    <Text wrapping="false" text="{MancantiReportModel>missing_material}"  />
+                                    <Text wrapping="false" text="{MancantiReportModel>missing_component}"  />
                                 </t:template>
                             </t:Column>
                             <t:Column sortProperty="missingMaterialDescription" filterProperty="missingMaterialDescription" width="10%" hAlign="Center">
                                 <Label text="{i18n>mancantiReport.table.missingMaterialDescription}"  />
                                 <t:template>
-                                    <Text wrapping="false" text="{MancantiReportModel>missingMaterialDescription}"  />
+                                    <Text wrapping="false" text="{MancantiReportModel>component_description}"  />
                                 </t:template>
                             </t:Column>
                             <t:Column sortProperty="type_mancante" filterProperty="type_mancante" width="14%" hAlign="Center">
