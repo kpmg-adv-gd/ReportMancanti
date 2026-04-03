@@ -32,6 +32,17 @@ sap.ui.define([
         getInfoModel: function(){
             return sap.ui.getCore().getModel("InfoModel");
         },
+        getUrlParameter: function(sParam) {
+            var sSearch = window.location.href;
+            var aParams = sSearch.split("&");
+            for (var i = 0; i < aParams.length; i++) {
+                var aPair = aParams[i].split("=");
+                if (decodeURIComponent(aPair[0]) === sParam) {
+                    return aPair[1] ? decodeURIComponent(aPair[1]) : "";
+                }
+            }
+            return null;
+        },
 		setBasicProperties: function(){
             this.getInfoModel().setProperty("/BaseProxyURL",this.getConfiguration().BaseProxyURL);
             this.getInfoModel().setProperty("/plant",this.getConfiguration().Plant);
@@ -64,6 +75,7 @@ sap.ui.define([
                 var oFilterModel = new JSONModel(response);
                 oFilterModel.setSizeLimit(10000);
                 this.getView().setModel(oFilterModel,"FilterModel");
+                that.checkParamsURL();
             };
 
             // Callback di errore
@@ -72,6 +84,15 @@ sap.ui.define([
             };
             CommonCallManager.callProxy("POST", url, params, true, successCallback, errorCallback, that);
 
+        },
+        checkParamsURL: function () {
+            var sWbe = this.getUrlParameter("WBE");
+            var sProject = this.getUrlParameter("PROJECT");
+            if (sWbe != null && sProject != null && sWbe != "" && sProject != "") {
+                this.getView().byId("wbeInputId").setValue(sWbe);
+                this.getView().byId("projectInputId").setValue(sProject);
+                this.onGoPress();
+            }
         },
         onGoPress: function(){
             var that=this;
